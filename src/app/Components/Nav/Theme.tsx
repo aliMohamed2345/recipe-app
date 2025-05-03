@@ -32,12 +32,12 @@ const Theme = () => {
   return (
     <button
       onClick={toggleTheme}
-      className=" hover:bg-accent text-text_green opacity-90 hover:opacity-100 rounded-full transition-all p-1 lg:w-9 lg:h-9  cursor-pointer"
+      className=" hover:bg-accent opacity-90 hover:opacity-100 rounded-full transition-all p-1 lg:w-9 lg:h-9 cursor-pointer"
     >
       {isDarkMode ? (
-        <IoMdSunny size={25} className="text-slate-400" />
+        <IoMdSunny size={25} className="text-foreground" />
       ) : (
-        <IoMdMoon size={25} className="text-gray-600" />
+        <IoMdMoon size={25} className="text-foreground" />
       )}
     </button>
   );
