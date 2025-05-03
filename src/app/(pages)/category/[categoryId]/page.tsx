@@ -1,9 +1,10 @@
 "use client";
 import { useParams } from "next/navigation";
-const SearchId = () => {
+import React from "react";
+const Category = () => {
   const searchValue = useParams();
   console.log(searchValue);
-  return <div>SearchId</div>;
+  return <div>Category</div>;
 };
 
-export default SearchId;
+export default Category;

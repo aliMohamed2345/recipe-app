@@ -54,12 +54,12 @@ const Search = () => {
     <>
       <IoMdSearch
         size={30}
-        className={`block rounded-full p-1 transition-all lg-hidden hover:bg-accent text-text_color opacity-90 hover:opacity-100`}
+        className={`block rounded-full p-1 transition-all lg-hidden hover:bg-accent opacity-90 hover:opacity-100`}
         onClick={() => setOpenSearch(true)}
       />
 
       {openSearch && (
-        <div className={` bg-secondary w-full h-screen inset-0 absolute`}>
+        <div className={` bg-secondary w-full h-screen inset-0 absolute z-10`}>
           <div className="flex items-center gap-2 mt-2">
             <button
               onClick={() => setOpenSearch(false)}
@@ -75,7 +75,11 @@ const Search = () => {
               value={searchValue}
               type="text"
               placeholder="search..."
-              className="outline-none w-full bg-transparent dark:text-gray-300 rounded-md p-2 placeholder:text-xl"
+              className="outline-none w-full bg-transparent dark:text-gray-300 rounded-md p-2 placeholder:text-xl relative"
+            />
+            <IoMdSearch
+              className={` rounded-full p-1 transition-all hover:bg-accent text-4xl mr-5`}
+              onClick={(e) => handleSearchBtn(e)}
             />
           </div>
           <div className="h-px w-full bg-gray-400 relative my-4"></div>
@@ -88,9 +92,8 @@ const Search = () => {
                   key={i}
                   href={{
                     pathname: `/search/${value}`,
-                    query: { q: value },
                   }}
-                  className="p-3 rounded-md transition-all text-text_color"
+                  className="p-3 rounded-md transition-all text-primary"
                 >
                   <div className="flex items-center justify-between gap-4">
                     <span className="flex content-start gap-2  items-center">
@@ -98,7 +101,7 @@ const Search = () => {
                     </span>
                     <IoClose
                       onClick={() => handleRemoveSearchValue(value)}
-                      className=" text-text_color hover:bg-secondary transition-all rounded-full"
+                      className=" text-primary hover:bg-secondary transition-all rounded-full"
                     />
                   </div>
                 </Link>
