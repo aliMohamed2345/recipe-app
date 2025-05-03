@@ -23,57 +23,69 @@
   --color-border: var(--color-border) /* Light gray border */;
   --color-input: var(--color-input) /* Light gray input */;
   --color-ring: var(--color-ring) /*ark ring */;
-  --color-green-text: var(--color-green-text) /* Green text*/;
+  --color-green: var(--color-green) /* Green text*/;
 }
 :root {
-  --background: rgb(255, 255, 255); /* White */
-  --foreground: rgb(4, 9, 19); /* Black text */
-  --card: rgb(255, 255, 255); /* White */
-  --card-foreground: rgb(4, 9, 19); /* Black text */
-  --popover: rgb(255, 255, 255); /* White */
-  --popover-foreground: rgb(4, 9, 19); /* Black text */
-  --primary: rgb(17, 22, 31); /* Dark blue */
-  --primary-foreground: rgb(250, 252, 254); /* Light text on primary */
-  --secondary: rgb(239, 245, 248); /* Light blue/gray */
-  --secondary-foreground: rgb(17, 22, 31); /* Dark text on secondary */
-  --muted: rgb(239, 245, 248); /* Light blue/gray */
-  --muted-foreground: rgb(100, 108, 118); /* Medium gray text */
-  --accent: rgb(239, 245, 248); /* Light blue/gray */
-  --accent-foreground: rgb(17, 22, 31); /* Dark text on accent */
-  --destructive: rgb(239, 76, 70); /* Red */
-  --destructive-foreground: rgb(250, 252, 254); /* Light text on destructive */
-  --border: rgb(228, 233, 237); /* Light gray border */
-  --input: rgb(228, 233, 237); /* Light gray input */
-  --ring: rgb(4, 9, 19); /* Dark ring */
-  --green-text: rgb(142, 176, 70); /* Green text*/
+  --color-background: rgb(255, 255, 255); /* White */
+  --color-foreground: rgb(4, 9, 19); /* Black text */
+  --color-card: rgb(255, 255, 255); /* White */
+  --color-card-foreground: rgb(4, 9, 19); /* Black text */
+  --color-popover: rgb(255, 255, 255); /* White */
+  --color-popover-foreground: rgb(4, 9, 19); /* Black text */
+  --color-primary: rgb(17, 22, 31); /* Dark blue */
+  --color-primary-foreground: rgb(250, 252, 254); /* Light text on primary */
+  --color-secondary: rgb(239, 245, 248); /* Light blue/gray */
+  --color-secondary-foreground: rgb(17, 22, 31); /* Dark text on secondary */
+  --color-muted: rgb(239, 245, 248); /* Light blue/gray */
+  --color-muted-foreground: rgb(100, 108, 118); /* Medium gray text */
+  --color-accent: rgb(239, 245, 248); /* Light blue/gray */
+  --color-accent-foreground: rgb(17, 22, 31); /* Dark text on accent */
+  --color-destructive: rgb(239, 76, 70); /* Red */
+  --color-destructive-foreground: rgb(
+    250,
+    252,
+    254
+  ); /* Light text on destructive */
+  --color-border: rgb(228, 233, 237); /* Light gray border */
+  --color-input: rgb(228, 233, 237); /* Light gray input */
+  --color-ring: rgb(4, 9, 19); /* Dark ring */
+  --color-green: rgb(142, 176, 70); /* Green text*/
 }
 
 html.dark {
-  --background: rgb(4, 9, 19); /* Dark background */
-  --foreground: rgb(250, 252, 254); /* Light text */
-  --card: rgb(4, 9, 19); /* Dark card */
-  --card-foreground: rgb(250, 252, 254); /* Light text on card */
-  --popover: rgb(4, 9, 19); /* Dark popover */
-  --popover-foreground: rgb(250, 252, 254); /* Light text on popover */
-  --primary: rgb(250, 252, 254); /* Light primary */
-  --primary-foreground: rgb(17, 22, 31); /* Dark text on primary */
-  --secondary: rgb(34, 41, 52); /* Dark secondary */
-  --secondary-foreground: rgb(250, 252, 254); /* Light text on secondary */
-  --muted: rgb(34, 41, 52); /* Dark muted */
-  --muted-foreground: rgb(162, 173, 191); /* Medium-light text on muted */
-  --accent: rgb(34, 41, 52); /* Dark accent */
-  --accent-foreground: rgb(250, 252, 254); /* Light text on accent */
-  --destructive: rgb(106, 27, 23); /* Dark red */
-  --destructive-foreground: rgb(250, 250, 250); /* Light text on destructive */
-  --border: rgb(34, 41, 52); /* Dark border */
-  --input: rgb(34, 41, 52); /* Dark input */
-  --ring: rgb(212, 218, 231); /* Light ring */
-  --green-text: rgb(142, 176, 70); /* Green text*/
+  --color-background: rgb(4, 9, 19); /* Dark background */
+  --color-foreground: rgb(250, 252, 254); /* Light text */
+  --color-card: rgb(4, 9, 19); /* Dark card */
+  --color-card-foreground: rgb(250, 252, 254); /* Light text on card */
+  --color-popover: rgb(4, 9, 19); /* Dark popover */
+  --color-popover-foreground: rgb(250, 252, 254); /* Light text on popover */
+  --color-primary: rgb(250, 252, 254); /* Light primary */
+  --color-primary-foreground: rgb(17, 22, 31); /* Dark text on primary */
+  --color-secondary: rgb(34, 41, 52); /* Dark secondary */
+  --color-secondary-foreground: rgb(
+    250,
+    252,
+    254
+  ); /* Light text on secondary */
+  --color-muted: rgb(34, 41, 52); /* Dark muted */
+  --color-muted-foreground: rgb(162, 173, 191); /* Medium-light text on muted */
+  --color-accent: rgb(34, 41, 52); /* Dark accent */
+  --color-accent-foreground: rgb(250, 252, 254); /* Light text on accent */
+  --color-destructive: rgb(106, 27, 23); /* Dark red */
+  --color-destructive-foreground: rgb(
+    250,
+    250,
+    250
+  ); /* Light text on destructive */
+  --color-border: rgb(34, 41, 52); /* Dark border */
+  --color-input: rgb(34, 41, 52); /* Dark input */
+  --color-ring: rgb(212, 218, 231); /* Light ring */
+  --color-green: rgb(142, 176, 70); /* Green text*/
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-background);
+  color: var(--color-foreground);
   font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
 }
