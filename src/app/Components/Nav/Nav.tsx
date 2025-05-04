@@ -1,12 +1,29 @@
 "use client";
-// import SearchArea from "@/app/Components/Nav/SearchArea";
 import SideMenu from "./SideMenu";
 import Theme from "@/app/Components/Nav/Theme";
 import Link from "next/link";
+import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import Search from "./Search";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 const Nav = () => {
+  const [categoryOpen, setCategoryOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
   const path = usePathname();
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setCategoryOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   return (
     <header className="border-b-1 border-border fixed w-full z-10 ">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 ">
@@ -24,15 +41,70 @@ const Nav = () => {
           </div>
 
           <div className="hidden md:block font-bold">
-            <div className="flex items-center gap-5">
-              <Link
-                href={"/category"}
-                className={`hover:bg-accent p-2 transition rounded-md ${
-                  path.includes(`category`) && `text-green`
-                } `}
+            <div className="flex items-center gap-5" ref={dropdownRef}>
+              <div
+                onClick={() => setCategoryOpen((prev) => !prev)}
+                className={`hover:bg-accent p-2 transition rounded-md flex items-center gap-1 cursor-pointer relative`}
               >
                 Categories
-              </Link>
+                <MdOutlineKeyboardArrowUp
+                  className={`${categoryOpen && `rotate-180`} transition`}
+                />
+                <div
+                  className={`absolute flex bg-muted flex-wrap w-[400px] gap-4 p-2 rounded-lg -bottom-[180px] -left-[20px] transition
+                    ${
+                      categoryOpen
+                        ? "opacity-100 scale-100 visible pointer-events-auto"
+                        : "opacity-0 scale-95 invisible pointer-events-none"
+                    }
+                  `}
+                >
+                  <Link
+                    href={`/category/breakfast`}
+                    className={`flex-1/3 hover:bg-background text-green p-2 font-bold rounded-lg ${
+                      path.includes("breakfast") && `bg-background`
+                    }`}
+                  >
+                    Breakfast
+                    <p className="text-xs text-muted-foreground">
+                      Start your day with our delicious breakfast recipes
+                    </p>
+                  </Link>
+                  <Link
+                    href={`/category/lunch`}
+                    className={`flex-1/3 hover:bg-background text-green p-2  rounded-lg ${
+                      path.includes("lunch") && `bg-background`
+                    }`}
+                  >
+                    Lunch
+                    <p className="text-xs text-muted-foreground">
+                      Quick and satisfying lunch recipes
+                    </p>
+                  </Link>
+                  <Link
+                    href={`/category/dinner`}
+                    className={`flex-1/3 hover:bg-background text-green p-2  rounded-lg ${
+                      path.includes("dinner") && `bg-background`
+                    }`}
+                  >
+                    Dinner
+                    <p className="text-xs text-muted-foreground">
+                      Impress your family with our dinner idea
+                    </p>
+                  </Link>
+                  <Link
+                    href={`/category/snacks`}
+                    className={`flex-1/3 hover:bg-background text-green p-2  rounded-lg ${
+                      path.includes("snacks") && `bg-background`
+                    }`}
+                  >
+                    Snacks
+                    <p className="text-xs text-muted-foreground">
+                      Perfect bites for any time of day
+                    </p>
+                  </Link>
+                </div>
+              </div>
               <Link
                 href={"/nutrition"}
                 className={`hover:bg-accent p-2 transition rounded-md ${
