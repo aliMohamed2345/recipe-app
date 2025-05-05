@@ -24,6 +24,7 @@
   --color-input: var(--color-input) /* Light gray input */;
   --color-ring: var(--color-ring) /*ark ring */;
   --color-green: var(--color-green) /* Green text*/;
+  --color-background-green: var(--color-background-green);
 }
 :root {
   --color-background: rgb(255, 255, 255); /* White */
