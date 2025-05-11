@@ -1,5 +1,6 @@
 "use client";
 import RecipeCard from "./Components/Recipe/RecipeCard";
+import RecipeSlider from "./Components/Recipe/RecipeSlider";
 import { useFetch } from "./hooks/useFetch";
 
 export interface recipeProps {
@@ -40,6 +41,7 @@ export default function Home() {
   return (
     <div className="pt-40">
       <RecipeCard recipeData={dummyDataRecipe} />;
+      <RecipeSlider />
     </div>
   );
 }
