@@ -25,7 +25,7 @@ const Nav = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
   return (
-    <header className="border-b-1 border-border fixed w-full z-10 ">
+    <header className="border-b-1 border-border fixed w-full z-10 bg-secondary ">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 ">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
@@ -44,14 +44,14 @@ const Nav = () => {
             <div className="flex items-center gap-5" ref={dropdownRef}>
               <div
                 onClick={() => setCategoryOpen((prev) => !prev)}
-                className={`hover:bg-accent p-2 transition rounded-md flex items-center gap-1 cursor-pointer relative`}
+                className={`hover:bg-background p-2 transition rounded-md flex items-center gap-1 cursor-pointer relative`}
               >
                 Categories
                 <MdOutlineKeyboardArrowUp
                   className={`${categoryOpen && `rotate-180`} transition`}
                 />
                 <div
-                  className={`absolute flex bg-muted flex-wrap w-[400px] gap-4 p-2 rounded-lg -bottom-[180px] -left-[20px] transition
+                  className={`absolute flex bg-secondary flex-wrap w-[400px] gap-4 p-2 rounded-lg -bottom-[190px] -left-[20px] transition
                     ${
                       categoryOpen
                         ? "opacity-100 scale-100 visible pointer-events-auto"
@@ -61,7 +61,7 @@ const Nav = () => {
                 >
                   <Link
                     href={`/category/breakfast`}
-                    className={`flex-1/3 hover:bg-background text-green p-2 font-bold rounded-lg ${
+                    className={`flex-1/3 transition hover:bg-background text-green p-2 font-bold rounded-lg ${
                       path.includes("breakfast") && `bg-background`
                     }`}
                   >
@@ -72,7 +72,7 @@ const Nav = () => {
                   </Link>
                   <Link
                     href={`/category/lunch`}
-                    className={`flex-1/3 hover:bg-background text-green p-2  rounded-lg ${
+                    className={`flex-1/3 transition hover:bg-background text-green p-2  rounded-lg ${
                       path.includes("lunch") && `bg-background`
                     }`}
                   >
@@ -83,7 +83,7 @@ const Nav = () => {
                   </Link>
                   <Link
                     href={`/category/dinner`}
-                    className={`flex-1/3 hover:bg-background text-green p-2  rounded-lg ${
+                    className={`flex-1/3 transition hover:bg-background text-green p-2  rounded-lg ${
                       path.includes("dinner") && `bg-background`
                     }`}
                   >
@@ -94,7 +94,7 @@ const Nav = () => {
                   </Link>
                   <Link
                     href={`/category/snacks`}
-                    className={`flex-1/3 hover:bg-background text-green p-2  rounded-lg ${
+                    className={`flex-1/3 transition hover:bg-background text-green p-2  rounded-lg ${
                       path.includes("snacks") && `bg-background`
                     }`}
                   >
@@ -107,24 +107,24 @@ const Nav = () => {
               </div>
               <Link
                 href={"/nutrition"}
-                className={`hover:bg-accent p-2 transition rounded-md ${
-                  path.includes(`nutrition`) && `text-green`
+                className={`hover:bg-background p-2 transition rounded-md  ${
+                  path.includes(`nutrition`) && `text-green bg-background`
                 }`}
               >
                 Nutrition
               </Link>
               <Link
                 href={`/recipes`}
-                className={`hover:bg-accent p-2 transition rounded-md ${
-                  path.includes(`recipes`) && `text-green`
+                className={`hover:bg-background p-2 transition rounded-md  ${
+                  path.includes(`recipes`) && `text-green bg-background`
                 }`}
               >
                 Discover
               </Link>
               <Link
                 href={`/favorites`}
-                className={`hover:bg-accent p-2 transition rounded-md ${
-                  path.includes(`favorites`) && `text-green`
+                className={`hover:bg-background p-2 transition rounded-md  ${
+                  path.includes(`favorites`) && `text-green bg-background`
                 }`}
               >
                 Favorites

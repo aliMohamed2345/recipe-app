@@ -6,6 +6,7 @@ import { IoPerson } from "react-icons/io5";
 import Link from "next/link";
 import { calculateTime } from "@/app/utils/calculateTime";
 const RecipeCard = ({ recipeData }: { recipeData: recipeProps }) => {
+  
   return (
     <Link
       href={`/recipes/${recipeData.id}`}
