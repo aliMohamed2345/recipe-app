@@ -5,7 +5,6 @@ import React, { useState } from "react";
 type tab = "calculator" | "recommendation" | "recipes";
 const Nutrition = () => {
   const [currentTab, setCurrentTab] = useState<tab>("calculator");
-  console.log(currentTab);
   return (
     <div className="p-5 border-border rounded-xl border mb-5">
       <h4 className="sm:text-2xl text-lg font-bold">Dietary Recommendations</h4>

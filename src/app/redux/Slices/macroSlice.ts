@@ -1,16 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const activityLevelValues = {
+  sedentary: 1.2,
+  light: 1.375,
+  moderate: 1.5,
+  very: 1.725,
+  extra: 1.9,
+};
+
+export type activityLevelType =
+  | "sedentary"
+  | "light"
+  | "moderate"
+  | "very"
+  | "extra";
+
 interface MacrosState {
   calories: number;
   protein: number;
   carbs: number;
   fat: number;
+  activityLevel: activityLevelType;
 }
 const initialState: MacrosState = {
   calories: 0,
   protein: 100,
   carbs: 250,
   fat: 70,
+  activityLevel: "sedentary",
 };
 
 const macroSlice = createSlice({
@@ -21,7 +38,14 @@ const macroSlice = createSlice({
       //1 gm protein = 4 calories
       //1 gm carbs = 4 calories
       //1 gm fat = 9 calories
-        state.calories = state.protein * 4 + state.carbs * 4 + state.fat * 9;
+      //multiply by activity level value
+      state.calories = Math.round(
+        (state.protein * 4 + state.carbs * 4 + state.fat * 9) *
+          activityLevelValues[state.activityLevel]
+      );
+    },
+    setActivityLevel: (state, action) => {
+      state.activityLevel = action.payload;
     },
     setProtein: (state, action) => {
       state.protein = action.payload;
@@ -35,5 +59,11 @@ const macroSlice = createSlice({
   },
 });
 
-export const { getTotalCalories, setProtein, setFat, setCarbs } = macroSlice.actions;
+export const {
+  getTotalCalories,
+  setProtein,
+  setFat,
+  setCarbs,
+  setActivityLevel,
+} = macroSlice.actions;
 export default macroSlice.reducer;
