@@ -1,11 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
+import axios, { AxiosResponse } from "axios";
+import { UseFetchProps } from "../utils/types";
 
-interface UseFetchProps {
-  url: string | null;
-  options?: RequestInit;
-  dependencies?: unknown[];
-}
+
+// ✅ Create an Axios instance with baseURL
+const axiosInstance = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+  params: {
+    apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  },
+});
 
 export const useFetch = <T>({
   url,
@@ -22,25 +30,28 @@ export const useFetch = <T>({
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(url, options);
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
-        const result: T = await response.json();
-        setData(result);
-      } catch (err: unknown) {
-        setError(
-          err instanceof Error ? err.message : "An unknown error occurred"
+        const response: AxiosResponse<T> = await axiosInstance.get(
+          url,
+          options
         );
+        setData(response.data);
+      } catch (err: unknown) {
+        const errorMessage =
+          err instanceof Error
+            ? err.message
+            : axios.isAxiosError(err) && err.response?.data?.message
+            ? err.response.data.message
+            : "Unknown error";
+        setError(errorMessage);
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-
+    // Only include dependencies explicitly passed
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url, JSON.stringify(options), ...dependencies]);
+  }, [url, ...dependencies]);
 
   return { data, error, loading };
 };

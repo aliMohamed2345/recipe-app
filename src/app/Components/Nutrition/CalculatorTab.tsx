@@ -12,7 +12,7 @@ import {
 import { RootState } from "@/app/redux/store";
 import { useEffect } from "react";
 import MacroPieChart from "./MacroPieChart";
-
+import { setCurrentTab } from "@/app/redux/Slices/nutritionTabSlice";
 const CalculatorTab = () => {
   const dispatch = useDispatch();
   const { carbs, protein, fat, calories, activityLevel } = useSelector(
@@ -23,6 +23,7 @@ const CalculatorTab = () => {
       "userNutritionData",
       JSON.stringify({ calories, carbs, protein, fat })
     );
+    dispatch(setCurrentTab("recipes"));
   };
 
   const proteinPercentage = (((protein * 4) / calories) * 100).toFixed(1);

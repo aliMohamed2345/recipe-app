@@ -1,83 +1,255 @@
 "use client";
 import { useRef } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
-const dummyRecipes = [
-  { id: 1, title: "Peanut Butter Banana Cookies", time: 45, servings: 16, tags: ["gluten free", "dairy free"] },
-  { id: 2, title: "OREO Turkeys for Thanksgiving", time: 40, servings: 48, tags: [] },
-  { id: 3, title: "Sausage & Pepperoni Stromboli", time: 28, servings: 6, tags: ["cheesy"] },
-  { id: 4, title: "Avocado Toast with Egg", time: 10, servings: 1, tags: ["vegetarian"] },
-  { id: 5, title: "Spaghetti Bolognese", time: 35, servings: 4, tags: [] },
-  { id: 6, title: "Grilled Chicken Salad", time: 20, servings: 2, tags: ["healthy"] },
-  { id: 7, title: "Classic Cheeseburger", time: 25, servings: 3, tags: [] },
-  { id: 8, title: "Blueberry Muffins", time: 30, servings: 12, tags: ["dessert"] },
-  { id: 9, title: "Vegan Buddha Bowl", time: 25, servings: 2, tags: ["vegan", "gluten free"] },
-];
-
-export default function RecipeSlider() {
-  const sliderRef = useRef<HTMLDivElement>(null);
+// import { useFetch } from "@/app/hooks/useFetch";
+// import RecipeCard from "./RecipeCard";
+// import { recipeProps } from "@/app/page";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import RecipeCard from "./RecipeCard";
+import { mealTypeProps } from "@/app/utils/types";
+ export const sliderRecipeDummyData = [
+    {
+      id: 101,
+      title: "Grilled Chicken with Vegetables",
+      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      servings: 2,
+      readyInMinutes: 35,
+      nutrition: {
+        nutrients: [
+          {
+            name: "Calories",
+            amount: 420,
+            unit: "kcal",
+          },
+        ],
+      },
+    },
+    {
+      id: 101,
+      title: "Grilled Chicken with Vegetables",
+      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      servings: 2,
+      readyInMinutes: 35,
+      nutrition: {
+        nutrients: [
+          {
+            name: "Calories",
+            amount: 420,
+            unit: "kcal",
+          },
+        ],
+      },
+    },
+    {
+      id: 101,
+      title: "Grilled Chicken with Vegetables",
+      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      servings: 2,
+      readyInMinutes: 35,
+      nutrition: {
+        nutrients: [
+          {
+            name: "Calories",
+            amount: 420,
+            unit: "kcal",
+          },
+        ],
+      },
+    },
+    {
+      id: 101,
+      title: "Grilled Chicken with Vegetables",
+      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      servings: 2,
+      readyInMinutes: 35,
+      nutrition: {
+        nutrients: [
+          {
+            name: "Calories",
+            amount: 420,
+            unit: "kcal",
+          },
+        ],
+      },
+    },
+    {
+      id: 101,
+      title: "Grilled Chicken with Vegetables",
+      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      servings: 2,
+      readyInMinutes: 35,
+      nutrition: {
+        nutrients: [
+          {
+            name: "Calories",
+            amount: 420,
+            unit: "kcal",
+          },
+        ],
+      },
+    },
+    {
+      id: 101,
+      title: "Grilled Chicken with Vegetables",
+      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      servings: 2,
+      readyInMinutes: 35,
+      nutrition: {
+        nutrients: [
+          {
+            name: "Calories",
+            amount: 420,
+            unit: "kcal",
+          },
+        ],
+      },
+    },
+    {
+      id: 101,
+      title: "Grilled Chicken with Vegetables",
+      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      servings: 2,
+      readyInMinutes: 35,
+      nutrition: {
+        nutrients: [
+          {
+            name: "Calories",
+            amount: 420,
+            unit: "kcal",
+          },
+        ],
+      },
+    },
+    {
+      id: 101,
+      title: "Grilled Chicken with Vegetables",
+      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      servings: 2,
+      readyInMinutes: 35,
+      nutrition: {
+        nutrients: [
+          {
+            name: "Calories",
+            amount: 420,
+            unit: "kcal",
+          },
+        ],
+      },
+    },
+    {
+      id: 101,
+      title: "Grilled Chicken with Vegetables",
+      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      servings: 2,
+      readyInMinutes: 35,
+      nutrition: {
+        nutrients: [
+          {
+            name: "Calories",
+            amount: 420,
+            unit: "kcal",
+          },
+        ],
+      },
+    },
+    {
+      id: 101,
+      title: "Grilled Chicken with Vegetables",
+      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      servings: 2,
+      readyInMinutes: 35,
+      nutrition: {
+        nutrients: [
+          {
+            name: "Calories",
+            amount: 420,
+            unit: "kcal",
+          },
+        ],
+      },
+    },
+    {
+      id: 101,
+      title: "Grilled Chicken with Vegetables",
+      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      servings: 2,
+      readyInMinutes: 35,
+      nutrition: {
+        nutrients: [
+          {
+            name: "Calories",
+            amount: 420,
+            unit: "kcal",
+          },
+        ],
+      },
+    },
+  ];
+const RecipeSlider = ({ meal }: { meal: mealTypeProps }) => {
+  console.log(meal);
+ 
+  // const nutrition = JSON.parse(
+  // localStorage.getItem("userNutritionData") || "{}"
+  // );
+  // const { carbs, protein, fat } = nutrition;
+  // const {
+  //   data: responseRecipes,
+  //   loading,
+  //   error,
+  // } = useFetch<{ results: recipeProps[] }>({
+  //   url: `/recipes/complexSearch?minProtein=${protein}&minCarbs=${carbs}&minFat=${fat}&addRecipeInformation=true&type=${mealType[meal]}`,
+  // });
+  // console.log(responseRecipes);
+  // const exampleSliderRecipe = [Array.from({ length: 10 }, (_, index) => index)];
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
         left: direction === "left" ? -320 : 320,
         behavior: "smooth",
       });
     }
   };
 
+  // if (loading) return <p className="p-5">Loading recipes...</p>;
+  // if (error) return <p className="p-5 text-destructive">Error: {error}</p>;
+
   return (
-    <section className="relative px-4 py-6">
-      <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-        <span className="text-orange-500">📈</span> Trending Now
-      </h2>
-
-      <div
-        ref={sliderRef}
-        className="flex overflow-x-auto gap-4 scroll-smooth scrollbar-hide"
-      >
-        {dummyRecipes.map((recipe) => (
-          <div
-            key={recipe.id}
-            className="min-w-[300px] bg-white rounded-lg border shadow-sm hover:shadow-md transition-all"
-          >
-            <div className="h-[150px] bg-gray-800 text-white flex items-center justify-center text-sm rounded-t-lg px-2 text-center">
-              {recipe.title}
-            </div>
-            <div className="p-4">
-              <p className="font-semibold text-sm">{recipe.title}</p>
-              <div className="flex justify-between text-sm text-gray-500 mt-2">
-                <span>⏱ {recipe.time} min</span>
-                <span>👤 {recipe.servings} servings</span>
-              </div>
-              <div className="flex gap-2 mt-2 flex-wrap">
-                {recipe.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Scroll Buttons */}
+    <div className="p-2 relative mx-auto container">
       <button
         onClick={() => scroll("left")}
-        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow hover:bg-gray-100 z-10"
+        className="absolute left-5 top-1/2 -translate-y-1/2 shadow-md p-3 rounded-full z-10 bg-green cursor-pointer flex items-center justify-center"
       >
-        <FaArrowLeft />
+        <FaChevronLeft />
       </button>
       <button
         onClick={() => scroll("right")}
-        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow hover:bg-gray-100 z-10"
+        className="absolute right-5 top-1/2 -translate-y-1/2 shadow-md p-3 rounded-full z-10 bg-green cursor-pointer flex items-center justify-center"
       >
-        <FaArrowRight />
+        <FaChevronRight />
       </button>
-    </section>
+
+      <div
+        ref={scrollRef}
+        className="flex gap-4 overflow-x-hidden scrollbar-hide pb-3 scroll-smooth snap-x snap-mandatory rounded-lg p-2"
+      >
+        {/* {responseRecipes?.results?.map((recipe) => (
+          <div
+            key={recipe.id}
+            className="min-w-[250px] flex-shrink-0 snap-start"
+          >
+            <RecipeCard recipeData={recipe} />
+          </div>
+        ))} */}
+        {sliderRecipeDummyData.map((_, index) => (
+          <div key={index} className="min-w-[250px] flex-shrink-0 snap-start">
+            <RecipeCard />
+          </div>
+        ))}
+        {}
+      </div>
+    </div>
   );
-}
+};
+
+export default RecipeSlider;

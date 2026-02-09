@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { MacrosState } from "@/app/utils/types";
 const activityLevelValues = {
   sedentary: 1.2,
   light: 1.375,
@@ -8,20 +8,7 @@ const activityLevelValues = {
   extra: 1.9,
 };
 
-export type activityLevelType =
-  | "sedentary"
-  | "light"
-  | "moderate"
-  | "very"
-  | "extra";
 
-interface MacrosState {
-  calories: number;
-  protein: number;
-  carbs: number;
-  fat: number;
-  activityLevel: activityLevelType;
-}
 const initialState: MacrosState = {
   calories: 0,
   protein: 100,
