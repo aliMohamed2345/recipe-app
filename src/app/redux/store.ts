@@ -1,6 +1,8 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import macroSlice from "./Slices/macroSlice";
+import nutritionSlice from "./Slices/nutritionTabSlice";
 const RootReducers = combineReducers({
+  nutritionTab: nutritionSlice,
   macro: macroSlice,
 });
 

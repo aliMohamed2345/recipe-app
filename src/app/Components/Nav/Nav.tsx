@@ -93,7 +93,7 @@ const Nav = () => {
                     </p>
                   </Link>
                   <Link
-                    href={`/category/snacks`}
+                    href={`/category/snack`}
                     className={`flex-1/3 transition hover:bg-background text-green p-2  rounded-lg ${
                       path.includes("snacks") && `bg-background`
                     }`}

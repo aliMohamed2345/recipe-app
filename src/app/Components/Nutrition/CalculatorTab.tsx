@@ -12,7 +12,7 @@ import {
 import { RootState } from "@/app/redux/store";
 import { useEffect } from "react";
 import MacroPieChart from "./MacroPieChart";
-
+import { setCurrentTab } from "@/app/redux/Slices/nutritionTabSlice";
 const CalculatorTab = () => {
   const dispatch = useDispatch();
   const { carbs, protein, fat, calories, activityLevel } = useSelector(
@@ -23,6 +23,7 @@ const CalculatorTab = () => {
       "userNutritionData",
       JSON.stringify({ calories, carbs, protein, fat })
     );
+    dispatch(setCurrentTab("recipes"));
   };
 
   const proteinPercentage = (((protein * 4) / calories) * 100).toFixed(1);
@@ -201,7 +202,7 @@ const CalculatorTab = () => {
       </div>
       <button
         onClick={handleCreateNutritionPlan}
-        className="bg-primary text-primary-foreground p-3 rounded-lg mx-auto font-bold cursor-pointer"
+        className="bg-primary text-primary-foreground p-3 rounded-lg mx-auto font-bold cursor-pointer my-5"
       >
         Find Recipes Matching your plans
       </button>

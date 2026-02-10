@@ -1,13 +1,4 @@
-type MacroSliderProps = {
-  label: string;
-  unit: string;
-  value: number;
-  onChange: (val: number) => void;
-  min: number;
-  max: number;
-  step: number;
-  totalCalories: number;
-};
+import { MacroSliderProps } from "@/app/utils/types";
 
 const MacroSlider = ({
   label,
