@@ -1,18 +1,23 @@
-"use client";
-import RecipeSlider from "./Components/Recipe/RecipeSlider";
-// import { useFetch } from "./hooks/useFetch";
-
-
-
-export default function Home() {
-  // const query = `chicken`;
-  // const { data: responseRecipes } = useFetch<recipeType>({
-    // url: `/recipes/complexSearch?query=${query}&addRecipeInformation=true&addRecipeNutrition=true`,
-  // });
-  // console.log({ data: responseRecipes?.results || {} });
+import CollectionSection from "./Components/Home/CollectionSection";
+import CuisineHighLightSection from "./Components/Home/CuisineHighLightSection";
+import MealPrepBannerSection from "./Components/Home/MealPrepBannerSection";
+import FeaturesSection from "./Components/Home/FeaturesSection";
+import HowItWorksSection from "./Components/Home/HowItWorksSection";
+import HeroSection from "./Components/Home/HeroSection";
+import StatsBarSection from "./Components/Home/StatsBarSection";
+const Home = () => {
   return (
-    <div className="pt-20">
-      <RecipeSlider meal="breakfast" />
-    </div>
+    <>
+      <main className="overflow-hidden">
+        <HeroSection />
+        <StatsBarSection />
+        <CollectionSection />
+        <CuisineHighLightSection />
+        <MealPrepBannerSection />
+        <FeaturesSection />
+        <HowItWorksSection />
+      </main>
+    </>
   );
-}
+};
+export default Home;

@@ -11,8 +11,7 @@ import { LuChefHat } from "react-icons/lu";
 import { sliderRecipeDummyData } from "@/app/Components/Recipe/RecipeSlider";
 import RecipeCard from "@/app/Components/Recipe/RecipeCard";
 import { fadeUp } from "@/app/utils/animationVariants";
-import recipe
-import RecipeIdLoadingSkeleton from "../../../Components/Recipe/RecipeIdLoadingSkeleton";
+// import RecipeIdLoadingSkeleton from "../../../Components/Recipe/RecipeIdLoadingSkeleton";
 const recipeDataId = {
   image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
   title:
@@ -59,7 +58,6 @@ const RecipeId = () => {
   return (
     // <RecipeIdLoadingSkeleton/>
     <div className="container mx-auto px-4 pt-24 pb-12 space-y-12">
-      <RecipeIdLoadingSkeleton/>
       <motion.div
         variants={fadeUp}
         initial="hidden"

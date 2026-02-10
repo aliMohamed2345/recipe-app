@@ -202,7 +202,7 @@ const CalculatorTab = () => {
       </div>
       <button
         onClick={handleCreateNutritionPlan}
-        className="bg-primary text-primary-foreground p-3 rounded-lg mx-auto font-bold cursor-pointer"
+        className="bg-primary text-primary-foreground p-3 rounded-lg mx-auto font-bold cursor-pointer my-5"
       >
         Find Recipes Matching your plans
       </button>
