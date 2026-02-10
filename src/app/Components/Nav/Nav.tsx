@@ -114,9 +114,9 @@ const Nav = () => {
                 Nutrition
               </Link>
               <Link
-                href={`/recipes`}
+                href={`/discover`}
                 className={`hover:bg-background p-2 transition rounded-md  ${
-                  path.includes(`recipes`) && `text-green bg-background`
+                  path.includes(`discover`) && `text-green bg-background`
                 }`}
               >
                 Discover
