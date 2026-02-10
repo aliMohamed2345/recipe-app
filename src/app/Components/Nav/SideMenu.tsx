@@ -88,9 +88,9 @@ const SideMenu = () => {
           <div className="flex gap-2 flex-col items-center mt-5 text-lg font-bold">
             <Link
               className={`p-2 hover:bg-accent hover:text-green transition w-full text-center rounded-md text-foreground ${
-                pathname.includes(`recipes`) && `bg-accent text-green`
+                pathname.includes(`discover`) && `bg-accent text-green`
               }`}
-              href={`/recipes`}
+              href={`/discover`}
             >
               Discover
             </Link>
