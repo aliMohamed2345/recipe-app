@@ -1,4 +1,9 @@
-import { cuisineDataProps, mealTypeProps } from "./types";
+import {
+  cuisineDataProps,
+  mailTypeProps,
+  mealTypeProps,
+  typeIntoleranceProps,
+} from "./types";
 import { BiSearch, BiLeaf, BiCalculator, BiBookmarkPlus } from "react-icons/bi";
 import { BsClock } from "react-icons/bs";
 import { GiSparkles } from "react-icons/gi";
@@ -133,110 +138,148 @@ export const howItWorks = [
 export const cuisinesData: cuisineDataProps[] = [
   {
     title: "African",
-    image: "https://images.unsplash.com/photo-1604908176997-4318f20b3c1b",
+    image: "https://images.unsplash.com/photo-1604908176997-4318f20b3c1b?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Asian",
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "American",
-    image: "https://images.unsplash.com/photo-1550547660-d9450f859349",
+    image: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "British",
-    image: "https://images.unsplash.com/photo-1604908177522-0403f1c6fba9",
+    image: "https://images.unsplash.com/photo-1604908177522-0403f1c6fba9?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Cajun",
-    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Caribbean",
-    image: "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
+    image: "https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Chinese",
-    image: "https://images.unsplash.com/photo-1563245372-f21724e3856d",
+    image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Eastern European",
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950",
+    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "European",
-    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "French",
-    image: "https://images.unsplash.com/photo-1543352634-8730b1b9c1b4",
+    image: "https://images.unsplash.com/photo-1543352634-8730b1b9c1b4?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "German",
-    image: "https://images.unsplash.com/photo-1604909053196-8c0c9d9b0d58",
+    image: "https://images.unsplash.com/photo-1604909053196-8c0c9d9b0d58?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Greek",
-    image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af",
+    image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Indian",
-    image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe",
+    image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Irish",
-    image: "https://images.unsplash.com/photo-1604908177447-1d5c6b9b0b7b",
+    image: "https://images.unsplash.com/photo-1604908177447-1d5c6b9b0b7b?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Italian",
-    image: "https://images.unsplash.com/photo-1525755662778-989d0524087e",
+    image: "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Japanese",
-    image: "https://images.unsplash.com/photo-1553621042-f6e147245754",
+    image: "https://images.unsplash.com/photo-1553621042-f6e147245754?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Jewish",
-    image: "https://images.unsplash.com/photo-1604908177265-bb4c4b965221",
+    image: "https://images.unsplash.com/photo-1604908177265-bb4c4b965221?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Korean",
-    image: "https://images.unsplash.com/photo-1590301157890-4810ed352733",
+    image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Latin American",
-    image: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b",
+    image: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Mediterranean",
-    image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
+    image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Mexican",
-    image: "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85",
+    image: "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Middle Eastern",
-    image: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea",
+    image: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Nordic",
-    image: "https://images.unsplash.com/photo-1604908177302-7b2f9b391d4b",
+    image: "https://images.unsplash.com/photo-1604908177302-7b2f9b391d4b?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Southern",
-    image: "https://images.unsplash.com/photo-1625944525903-c4628d43cbd5",
+    image: "https://images.unsplash.com/photo-1625944525903-c4628d43cbd5?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Spanish",
-    image: "https://images.unsplash.com/photo-1562967914-608f82629710",
+    image: "https://images.unsplash.com/photo-1562967914-608f82629710?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Thai",
-    image: "https://images.unsplash.com/photo-1559847844-d721426d6edc",
+    image: "https://images.unsplash.com/photo-1559847844-d721426d6edc?w=1000&q=80&auto=format&fit=crop",
   },
   {
     title: "Vietnamese",
-    image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43",
+    image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=1000&q=80&auto=format&fit=crop",
   },
 ];
+
+export const mealTypeData: mailTypeProps[] = [
+  `main course`,
+  `side dish`,
+  `dessert`,
+  `appetizer`,
+  `salad`,
+  `bread`,
+  `breakfast`,
+  `soup`,
+  `beverage`,
+  `sauce`,
+  `marinade`,
+  `fingerfood`,
+  `snack`,
+  `drink`,
+];
+
+export const typeIntolerance: typeIntoleranceProps[] = [
+  `Dairy`,
+  `Egg`,
+  `Gluten`,
+  `Grain`,
+  `Peanut`,
+  `Seafood`,
+  `Sesame`,
+  `Shellfish`,
+  `Soy`,
+  `Sulfite`,
+  `Tree Nut`,
+  `Wheat`,
+];
+
+export const filterDataInitialState={
+      cuisine: undefined,
+      mealType: undefined,
+      intolerance: undefined,
+}

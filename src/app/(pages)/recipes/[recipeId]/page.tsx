@@ -62,7 +62,7 @@ const RecipeId = () => {
         variants={fadeUp}
         initial="hidden"
         animate="show"
-        className="grid lg:grid-cols-2 gap-10 items-center"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 justify-items-center pt-5 max-w-6xl mx-auto"
       >
         <div className="relative w-full aspect-square rounded-3xl overflow-hidden shadow-lg">
           <Image

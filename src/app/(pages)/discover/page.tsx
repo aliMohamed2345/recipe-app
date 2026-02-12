@@ -13,21 +13,26 @@ const page = () => {
           <Link
             href={`/discover/${cuisine.title as typeCuisinesProps}`}
             key={i}
-            className="group"
+            className="group block"
           >
             <div className="overflow-hidden h-full transition-all hover:shadow-md rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-              <div className="relative h-40 overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  width={100}
-                  height={100}
                   src={cuisine.image}
                   alt={cuisine.title}
-                  className="w-full h-full object-cover transition-all group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 640px) 100vw,
+                 (max-width: 1024px) 50vw,
+                 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  quality={85}
                 />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center" />
+
+                <div className="absolute inset-0 bg-black/25 flex items-center justify-center" />
               </div>
+
               <div className="p-4">
-                <p className="text-sm text-muted-foreground text-center group-hover:text-green transition-all">
+                <p className="text-sm text-muted-foreground text-center group-hover:text-green transition-colors">
                   {cuisine.title} recipes
                 </p>
               </div>

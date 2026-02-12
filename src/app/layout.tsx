@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "./Components/Nav/Nav";
 import ReduxProvider from "./ReduxProvider";
+import { Toaster } from "react-hot-toast";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased transition`}
       >
         <ReduxProvider>
+          <Toaster position="top-center" reverseOrder={false}/>
           <Nav />
           {children}
         </ReduxProvider>
