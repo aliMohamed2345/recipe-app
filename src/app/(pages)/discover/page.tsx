@@ -8,32 +8,25 @@ const page = () => {
       <h1 className="font-bold text-lg sm:text-3xl text-center sm:text-left pt-20 pb-5 ">
         Discover Recipe category
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center px-4">
         {cuisinesData.map((cuisine, i) => (
           <Link
             href={`/discover/${cuisine.title as typeCuisinesProps}`}
             key={i}
-            className="group block"
+            className="group w-full max-w-sm"
           >
-            <div className="overflow-hidden h-full transition-all hover:shadow-md rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-              <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105">
+              <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96">
                 <Image
                   src={cuisine.image}
                   alt={cuisine.title}
                   fill
-                  sizes="(max-width: 640px) 100vw,
-                 (max-width: 1024px) 50vw,
-                 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   quality={85}
                 />
-
                 <div className="absolute inset-0 bg-black/25 flex items-center justify-center" />
-              </div>
-
-              <div className="p-4">
-                <p className="text-sm text-muted-foreground text-center group-hover:text-green transition-colors">
-                  {cuisine.title} recipes
+                <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg font-semibold text-center px-3">
+                  {cuisine.title} Recipes
                 </p>
               </div>
             </div>
