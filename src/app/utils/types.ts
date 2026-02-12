@@ -1,4 +1,6 @@
 import { AxiosRequestConfig } from "axios";
+import { ReactNode } from "react";
+
 export interface recipeProps {
   id: number;
 
@@ -16,9 +18,11 @@ export interface recipeProps {
     ];
   };
 }
+
 export interface recipeType {
   results: [recipeProps];
 }
+
 export type activityLevelType =
   | "sedentary"
   | "light"
@@ -33,6 +37,7 @@ export interface MacrosState {
   fat: number;
   activityLevel: activityLevelType;
 }
+
 export interface UseFetchProps {
   url: string | null;
   options?: AxiosRequestConfig;
@@ -49,7 +54,9 @@ export type MacroSliderProps = {
   step: number;
   totalCalories: number;
 };
+
 export type tabType = "calculator" | "recommendation" | "recipes";
+
 export type mealTypeProps = "breakfast" | "lunch" | "dinner" | "snack";
 
 export type typeCuisinesProps =
@@ -94,6 +101,7 @@ export type typeIntoleranceProps =
   | `Sulfite`
   | `Tree Nut`
   | `Wheat`;
+
 export type mailTypeProps =
   | `main course`
   | `side dish`
@@ -109,4 +117,34 @@ export type mailTypeProps =
   | `fingerfood`
   | `snack`
   | `drink`;
+
 export type cuisineDataProps = { title: typeCuisinesProps; image: string };
+
+export interface DropDownMenuProps {
+  items: string[];
+  placeholder: string;
+  onSelect?: (value: string) => void;
+  value?: string;
+}
+
+export interface FilterDataProps {
+  cuisine?: typeCuisinesProps;
+  mealType?: mailTypeProps;
+  intolerance?: typeIntoleranceProps;
+}
+
+export interface FilterBlockProps {
+  title: string;
+  children: ReactNode;
+}
+
+export interface FilterChipProps {
+  label: string;
+  onRemove: () => void;
+}
+
+export interface SearchInputProps {
+  value: string;
+  onChange: (v: string) => void;
+  onSearch: () => void;
+}

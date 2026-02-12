@@ -14,7 +14,7 @@ const DiscoverIdPage = ({
         Explore our delicious collection of {cuisineType} recipes curated just
         for you.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 justify-items-center pt-5 max-w-6xl mx-auto">
         <RecipeCard />
         <RecipeCard />
         <RecipeCard />
