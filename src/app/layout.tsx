@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "./Components/Nav/Nav";
 import ReduxProvider from "./ReduxProvider";
 import { Toaster } from "react-hot-toast";
+import { Suspense } from "react";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,11 +30,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased transition`}
       >
-        <ReduxProvider>
-          <Toaster position="top-center" reverseOrder={false}/>
-          <Nav />
-          {children}
-        </ReduxProvider>
+        <Suspense>
+          <ReduxProvider>
+            <Toaster position="top-center" reverseOrder={false} />
+            <Nav />
+            {children}
+          </ReduxProvider>
+        </Suspense>
       </body>
     </html>
   );
