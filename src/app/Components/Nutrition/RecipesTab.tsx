@@ -1,6 +1,6 @@
-import { meals } from "@/app/utils/data";
-import RecipeSlider from "../Recipe/RecipeSlider";
-import { mealTypeProps } from "@/app/utils/types";
+// import { meals } from "@/app/utils/data";
+// import RecipeSlider from "../Recipe/RecipeSlider";
+// import { mealTypeProps } from "@/app/utils/types";
 import NutritionPlanNotFound from "./NutritionPlanNotFound";
 const RecipesTab = () => {
   const nutrition = JSON.parse(
@@ -18,12 +18,12 @@ const RecipesTab = () => {
       {!isNutritionExist && <NutritionPlanNotFound />}
       {isNutritionExist && (
         <div className="pt-5">
-          {meals.map((meal, i) => (
+          {/* {meals.map((meal, i) => (
             <div className="flex flex-col gap-5 " key={i}>
               <p className="text-lg font-bold sm:text-2xl">Recommended {meal} recipes</p>
               <RecipeSlider key={i} meal={meal as mealTypeProps} />
             </div>
-          ))}
+          ))} */}
         </div>
       )}
     </div>

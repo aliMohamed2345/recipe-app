@@ -8,7 +8,7 @@ const page = () => {
       <h1 className="font-bold text-lg sm:text-3xl text-center sm:text-left pt-20 pb-5 ">
         Discover Recipe category
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center p-4">
         {cuisinesData.map((cuisine, i) => (
           <Link
             href={`/discover/${cuisine.title as typeCuisinesProps}`}

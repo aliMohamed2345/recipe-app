@@ -1,6 +1,6 @@
 const RecipeGridLoadingSkeleton = ({ length = 9 }: { length?: number }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-5 justify-items-center">
       {Array.from({ length }).map((_, i) => (
         <div
           key={i}

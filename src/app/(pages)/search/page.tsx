@@ -6,7 +6,7 @@ import SearchInput from "@/app/Components/Search/SearchInput";
 import SearchFilter from "@/app/Components/Search/SearchFilter";
 import FilterChip from "@/app/Components/Search/FilterChip";
 import toast from "react-hot-toast";
-import RecipeCard from "@/app/Components/Recipe/RecipeCard";
+// import RecipeCard from "@/app/Components/Recipe/RecipeCard";
 const SearchPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -102,42 +102,8 @@ const SearchPage = () => {
         )}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 justify-items-center pt-5 max-w-6xl mx-auto">
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
+        {/* <RecipeCard /> */}
+        {/* <RecipeCard /> */}
       </div>
     </>
   );

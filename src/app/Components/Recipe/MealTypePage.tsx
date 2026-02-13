@@ -3,7 +3,7 @@ import { mealTypeProps } from "@/app/utils/types";
 import { CiForkAndKnife } from "react-icons/ci";
 import { FaClock } from "react-icons/fa6";
 import { GoPeople } from "react-icons/go";
-import RecipeCard from "./RecipeCard";
+// import RecipeCard from "./RecipeCard";
 // import RecipeGridLoadingSkeleton from "./RecipeGridLoadingSkeleton";
 const MealTypePage = ({ mealType }: { mealType: mealTypeProps }) => {
   const { description, Icon, style } = allMealTypeData(mealType);
@@ -50,35 +50,7 @@ const MealTypePage = ({ mealType }: { mealType: mealTypeProps }) => {
       </div>
       {/* <RecipeGridLoadingSkeleton /> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-5 justify-items-center">
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
+        {/* <RecipeCard /> */}
       </div>
     </div>
   );

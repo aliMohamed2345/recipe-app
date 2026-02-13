@@ -1,205 +1,13 @@
 "use client";
 import { useRef } from "react";
-// import { useFetch } from "@/app/hooks/useFetch";
-// import RecipeCard from "./RecipeCard";
-// import { recipeProps } from "@/app/page";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import RecipeCard from "./RecipeCard";
-import { mealTypeProps } from "@/app/utils/types";
- export const sliderRecipeDummyData = [
-    {
-      id: 101,
-      title: "Grilled Chicken with Vegetables",
-      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-      servings: 2,
-      readyInMinutes: 35,
-      nutrition: {
-        nutrients: [
-          {
-            name: "Calories",
-            amount: 420,
-            unit: "kcal",
-          },
-        ],
-      },
-    },
-    {
-      id: 101,
-      title: "Grilled Chicken with Vegetables",
-      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-      servings: 2,
-      readyInMinutes: 35,
-      nutrition: {
-        nutrients: [
-          {
-            name: "Calories",
-            amount: 420,
-            unit: "kcal",
-          },
-        ],
-      },
-    },
-    {
-      id: 101,
-      title: "Grilled Chicken with Vegetables",
-      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-      servings: 2,
-      readyInMinutes: 35,
-      nutrition: {
-        nutrients: [
-          {
-            name: "Calories",
-            amount: 420,
-            unit: "kcal",
-          },
-        ],
-      },
-    },
-    {
-      id: 101,
-      title: "Grilled Chicken with Vegetables",
-      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-      servings: 2,
-      readyInMinutes: 35,
-      nutrition: {
-        nutrients: [
-          {
-            name: "Calories",
-            amount: 420,
-            unit: "kcal",
-          },
-        ],
-      },
-    },
-    {
-      id: 101,
-      title: "Grilled Chicken with Vegetables",
-      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-      servings: 2,
-      readyInMinutes: 35,
-      nutrition: {
-        nutrients: [
-          {
-            name: "Calories",
-            amount: 420,
-            unit: "kcal",
-          },
-        ],
-      },
-    },
-    {
-      id: 101,
-      title: "Grilled Chicken with Vegetables",
-      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-      servings: 2,
-      readyInMinutes: 35,
-      nutrition: {
-        nutrients: [
-          {
-            name: "Calories",
-            amount: 420,
-            unit: "kcal",
-          },
-        ],
-      },
-    },
-    {
-      id: 101,
-      title: "Grilled Chicken with Vegetables",
-      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-      servings: 2,
-      readyInMinutes: 35,
-      nutrition: {
-        nutrients: [
-          {
-            name: "Calories",
-            amount: 420,
-            unit: "kcal",
-          },
-        ],
-      },
-    },
-    {
-      id: 101,
-      title: "Grilled Chicken with Vegetables",
-      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-      servings: 2,
-      readyInMinutes: 35,
-      nutrition: {
-        nutrients: [
-          {
-            name: "Calories",
-            amount: 420,
-            unit: "kcal",
-          },
-        ],
-      },
-    },
-    {
-      id: 101,
-      title: "Grilled Chicken with Vegetables",
-      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-      servings: 2,
-      readyInMinutes: 35,
-      nutrition: {
-        nutrients: [
-          {
-            name: "Calories",
-            amount: 420,
-            unit: "kcal",
-          },
-        ],
-      },
-    },
-    {
-      id: 101,
-      title: "Grilled Chicken with Vegetables",
-      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-      servings: 2,
-      readyInMinutes: 35,
-      nutrition: {
-        nutrients: [
-          {
-            name: "Calories",
-            amount: 420,
-            unit: "kcal",
-          },
-        ],
-      },
-    },
-    {
-      id: 101,
-      title: "Grilled Chicken with Vegetables",
-      image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-      servings: 2,
-      readyInMinutes: 35,
-      nutrition: {
-        nutrients: [
-          {
-            name: "Calories",
-            amount: 420,
-            unit: "kcal",
-          },
-        ],
-      },
-    },
-  ];
-const RecipeSlider = ({ meal }: { meal: mealTypeProps }) => {
-  console.log(meal);
- 
-  // const nutrition = JSON.parse(
-  // localStorage.getItem("userNutritionData") || "{}"
-  // );
-  // const { carbs, protein, fat } = nutrition;
-  // const {
-  //   data: responseRecipes,
-  //   loading,
-  //   error,
-  // } = useFetch<{ results: recipeProps[] }>({
-  //   url: `/recipes/complexSearch?minProtein=${protein}&minCarbs=${carbs}&minFat=${fat}&addRecipeInformation=true&type=${mealType[meal]}`,
-  // });
-  // console.log(responseRecipes);
-  // const exampleSliderRecipe = [Array.from({ length: 10 }, (_, index) => index)];
+import { ExtendedRecipeProps } from "@/app/utils/types";
+const RecipeSlider = ({
+  RecipesData,
+}: {
+  RecipesData: ExtendedRecipeProps[];
+}) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
@@ -210,9 +18,7 @@ const RecipeSlider = ({ meal }: { meal: mealTypeProps }) => {
       });
     }
   };
-
-  // if (loading) return <p className="p-5">Loading recipes...</p>;
-  // if (error) return <p className="p-5 text-destructive">Error: {error}</p>;
+  console.log(RecipesData[0].image);
 
   return (
     <div className="p-2 relative mx-auto container">
@@ -233,17 +39,9 @@ const RecipeSlider = ({ meal }: { meal: mealTypeProps }) => {
         ref={scrollRef}
         className="flex gap-4 overflow-x-hidden scrollbar-hide pb-3 scroll-smooth snap-x snap-mandatory rounded-lg p-2"
       >
-        {/* {responseRecipes?.results?.map((recipe) => (
-          <div
-            key={recipe.id}
-            className="min-w-[250px] flex-shrink-0 snap-start"
-          >
-            <RecipeCard recipeData={recipe} />
-          </div>
-        ))} */}
-        {sliderRecipeDummyData.map((_, index) => (
+        {RecipesData.map((recipeData, index) => (
           <div key={index} className="min-w-[250px] flex-shrink-0 snap-start">
-            <RecipeCard />
+            <RecipeCard recipeData={recipeData} />
           </div>
         ))}
         {}
