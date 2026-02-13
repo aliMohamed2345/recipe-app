@@ -2,18 +2,8 @@
 import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import { UseFetchProps } from "../utils/types";
+import { axiosInstance } from "../utils/axios";
 
-
-// ✅ Create an Axios instance with baseURL
-const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
-  params: {
-    apiKey: process.env.NEXT_PUBLIC_API_KEY,
-  },
-});
 
 export const useFetch = <T>({
   url,
