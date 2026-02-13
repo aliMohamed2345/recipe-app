@@ -73,9 +73,9 @@ const SideMenu = () => {
             </Link>
             <Link
               className={`p-2 hover:bg-accent hover:text-green transition w-full text-center rounded-md text-foreground ${
-                pathname.includes(`snacks`) && `bg-accent text-green`
+                pathname.includes(`snack`) && `bg-accent text-green`
               }`}
-              href={`/category/snacks`}
+              href={`/category/snack`}
             >
               Snacks
             </Link>

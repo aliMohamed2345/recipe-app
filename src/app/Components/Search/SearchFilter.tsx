@@ -4,12 +4,22 @@ import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { BiFilter } from "react-icons/bi";
 import DropDownMenu from "./DropDownMenu";
-import { cuisinesData, mealTypeData, typeIntolerance } from "@/app/utils/data";
+import {
+  cuisinesData,
+  dietData,
+  mealTypeData,
+  typeIntolerance,
+  equipmentData,
+  sortTypeData,
+} from "@/app/utils/data";
 import {
   FilterDataProps,
   typeCuisinesProps,
   typeIntoleranceProps,
   mailTypeProps,
+  dietTypeProps,
+  equipmentTypeProps,
+  sortTypeProps,
 } from "@/app/utils/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
@@ -23,6 +33,8 @@ const SearchFilter = ({ searchValue }: { searchValue: string }) => {
     cuisine: undefined,
     mealType: undefined,
     intolerance: undefined,
+    diet: undefined,
+    equipment: undefined,
   });
 
   const isEmpty = !filters.cuisine && !filters.mealType && !filters.intolerance;
@@ -124,6 +136,45 @@ const SearchFilter = ({ searchValue }: { searchValue: string }) => {
                 setFilters((p) => ({
                   ...p,
                   mealType: v as mailTypeProps,
+                }))
+              }
+            />
+          </FilterBlock>
+          <FilterBlock title="Diet">
+            <DropDownMenu
+              items={dietData}
+              placeholder="Select Diet"
+              value={filters.diet || ""}
+              onSelect={(v) =>
+                setFilters((p) => ({
+                  ...p,
+                  diet: v as dietTypeProps,
+                }))
+              }
+            />
+          </FilterBlock>
+          <FilterBlock title="Equipment">
+            <DropDownMenu
+              items={equipmentData}
+              placeholder="Select Equipment"
+              value={filters.equipment || ""}
+              onSelect={(v) =>
+                setFilters((p) => ({
+                  ...p,
+                  equipment: v as equipmentTypeProps,
+                }))
+              }
+            />
+          </FilterBlock>
+          <FilterBlock title="Sort By">
+            <DropDownMenu
+              items={sortTypeData}
+              placeholder="Select Sort By"
+              value={filters.sortBy || ""}
+              onSelect={(v) =>
+                setFilters((p) => ({
+                  ...p,
+                  sortBy: v as sortTypeProps,
                 }))
               }
             />

@@ -117,6 +117,280 @@ export type mailTypeProps =
   | `fingerfood`
   | `snack`
   | `drink`;
+export type dietTypeProps =
+  | `Gluten Free`
+  | `Ketogenic`
+  | `Vegetarian`
+  | `Lacto-Vegetarian`
+  | `Ovo-Vegetarian`
+  | `Vegan`
+  | `Pescetarian`
+  | `Paleo`
+  | `Primal`
+  | `Low FODMAP`
+  | `Whole30`;
+export type equipmentTypeProps =
+  | `skimmer`
+  | `pie form`
+  | `glass baking pan`
+  | `garlic press`
+  | `meat grinder`
+  | `tongs`
+  | `bread knife`
+  | `tajine pot`
+  | `wire rack`
+  | `mincing knife`
+  | `cherry pitter`
+  | `wooden skewers`
+  | `kitchen scissors`
+  | `blow torch`
+  | `broiler pan`
+  | `heart shaped silicone form`
+  | `grill`
+  | `immersion blender`
+  | `baking sheet`
+  | `oven mitt`
+  | `pastry bag`
+  | `palette knife`
+  | `pizza cutter`
+  | `bottle opener`
+  | `bowl`
+  | `pizza pan`
+  | `candy thermometer`
+  | `rolling pin`
+  | `frying pan`
+  | `casserole dish`
+  | `plastic wrap`
+  | `salad spinner`
+  | `broiler`
+  | `silicone muffin tray`
+  | `meat tenderizer`
+  | `edible cake image`
+  | `measuring spoon`
+  | `kitchen thermometer`
+  | `sifter`
+  | `muffin tray`
+  | `chocolate mold`
+  | `kitchen towels`
+  | `potato ricer`
+  | `silicone kugelhopf pan`
+  | `offset spatula`
+  | `cheesecloth`
+  | `lemon squeezer`
+  | `cake form`
+  | `mini muffin tray`
+  | `carving fork`
+  | `egg slicer`
+  | `ice cube tray`
+  | `corkscrew`
+  | `ice cream machine`
+  | `sieve`
+  | `kugelhopf pan`
+  | `pastry brush`
+  | `popsicle sticks`
+  | `spatula`
+  | `cake server`
+  | `poultry shears`
+  | `box grater`
+  | `cupcake toppers`
+  | `funnel`
+  | `drinking straws`
+  | `slotted spoon`
+  | `ceramic pie form`
+  | `pepper grinder`
+  | `mortar and pestle`
+  | `baster`
+  | `melon baller`
+  | `zester`
+  | `pastry cutter`
+  | `ziploc bags`
+  | `aluminum foil`
+  | `toothpicks`
+  | `pot`
+  | `baking pan`
+  | `ladle`
+  | `apple cutter`
+  | `fillet knife`
+  | `toaster`
+  | `heart shaped cake form`
+  | `grill pan`
+  | `wooden spoon`
+  | `paper towels`
+  | `cookie cutter`
+  | `tart form`
+  | `pizza board`
+  | `glass casserole dish`
+  | `madeleine form`
+  | `metal skewers`
+  | `microplane`
+  | `stand mixer`
+  | `whisk`
+  | `mixing bowl`
+  | `deep fryer`
+  | `canning jar`
+  | `cheese knife`
+  | `hand mixer`
+  | `butter curler`
+  | `food processor`
+  | `wax paper`
+  | `grater`
+  | `gravy boat`
+  | `muffin liners`
+  | `butter knife`
+  | `waffle iron`
+  | `double boiler`
+  | `can opener`
+  | `mandoline`
+  | `kitchen twine`
+  | `juicer`
+  | `wok`
+  | `measuring cup`
+  | `ramekin`
+  | `airfryer`
+  | `instant pot`
+  | `spoon`
+  | `dough scraper`
+  | `microwave`
+  | `roasting pan`
+  | `pressure cooker`
+  | `dehydrator`
+  | `baking paper`
+  | `silicone muffin liners`
+  | `loaf pan`
+  | `cake topper`
+  | `dutch oven`
+  | `baking spatula`
+  | `popsicle molds`
+  | `teapot`
+  | `cocktail sticks`
+  | `cleaver`
+  | `rice cooker`
+  | `bread machine`
+  | `fork`
+  | `ice cream scoop`
+  | `slow cooker`
+  | `knife`
+  | `kitchen scale`
+  | `griddle`
+  | `frosting cake topper`
+  | `cutting board`
+  | `cake pop mold`
+  | `oven`
+  | `colander`
+  | `kitchen timer`
+  | `panini press`
+  | `pasta machine`
+  | `popcorn maker`
+  | `lollipop sticks`
+  | `steamer basket`
+  | `chopsticks`
+  | `chefs knife`
+  | `blender`
+  | `pizza stone`
+  | `skewers`
+  | `sauce pan`
+  | `peeler`
+  | `stove`
+  | `pot holder`
+  | `springform pan`
+  | `apple corer`
+  | `potato masher`
+  | `serrated knife`;
+export type sortTypeProps =
+  | `meta-score`
+  | `popularity`
+  | `healthiness`
+  | `price`
+  | `time`
+  | `random`
+  | `max-used-ingredients`
+  | `min-missing-ingredients`
+  | `alcohol`
+  | `caffeine`
+  | `copper`
+  | `energy`
+  | `calories`
+  | `calcium`
+  | `carbohydrates`
+  | `carbs`
+  | `choline`
+  | `cholesterol`
+  | `total-fat`
+  | `fluoride`
+  | `trans-fat`
+  | `saturated-fat`
+  | `mono-unsaturated-fat`
+  | `poly-unsaturated-fat`
+  | `fiber`
+  | `folate`
+  | `folic-acid`
+  | `iodine`
+  | `iron`
+  | `magnesium`
+  | `manganese`
+  | `vitamin-b3`
+  | `niacin`
+  | `vitamin-b5`
+  | `pantothenic-acid`
+  | `phosphorus`
+  | `potassium`
+  | `protein`
+  | `vitamin-b2`
+  | `riboflavin`
+  | `selenium`
+  | `sodium`
+  | `vitamin-b1`
+  | `thiamin`
+  | `vitamin-a`
+  | `vitamin-b6`
+  | `vitamin-b12`
+  | `vitamin-c`
+  | `vitamin-d`
+  | `vitamin-e`
+  | `vitamin-k`
+  | `sugar`
+  | `zinc`;
+export type nutrientTypeProps =
+  | `Calories `
+  | `Fat `
+  | `Trans Fat `
+  | `Saturated Fat `
+  | `Mono Unsaturated Fat `
+  | `Poly Unsaturated Fat `
+  | `Protein `
+  | `Cholesterol `
+  | `Carbohydrates `
+  | `Net Carbohydrates `
+  | `Alcohol `
+  | `Fiber `
+  | `Sugar `
+  | `Sodium `
+  | `Caffein `
+  | `Manganese `
+  | `Potassium `
+  | `Magnesium `
+  | `Calcium `
+  | `Copper `
+  | `Zinc `
+  | `Phosphorus `
+  | `Fluoride `
+  | `Choline `
+  | `Iron `
+  | `Vitamin A `
+  | `Vitamin B1 `
+  | `Vitamin B2 `
+  | `Vitamin B3 `
+  | `Vitamin B5 `
+  | `Vitamin B6 `
+  | `Vitamin B12 `
+  | `Vitamin C `
+  | `Vitamin D `
+  | `Vitamin E `
+  | `Vitamin K `
+  | `Folate `
+  | `Folic Acid `
+  | `Iodine `
+  | `Selenium `;
 
 export type cuisineDataProps = { title: typeCuisinesProps; image: string };
 
@@ -131,6 +405,9 @@ export interface FilterDataProps {
   cuisine?: typeCuisinesProps;
   mealType?: mailTypeProps;
   intolerance?: typeIntoleranceProps;
+  diet?: dietTypeProps;
+  equipment?: equipmentTypeProps;
+  sortBy?: sortTypeProps;
 }
 
 export interface FilterBlockProps {
@@ -147,4 +424,160 @@ export interface SearchInputProps {
   value: string;
   onChange: (v: string) => void;
   onSearch: () => void;
+}
+export interface nutritionTypes {
+  minCarbs?: number;
+  maxCarbs?: number;
+  minProtein?: number;
+  maxProtein?: number;
+  minCalories?: number;
+  maxCalories?: number;
+  minFat?: number;
+  maxFat?: number;
+  minAlcohol?: number;
+  maxAlcohol?: number;
+  minCaffeine?: number;
+  maxCaffeine?: number;
+  minCopper?: number;
+  maxCopper?: number;
+  minCalcium?: number;
+  maxCalcium?: number;
+  minCholine?: number;
+  maxCholine?: number;
+  minCholesterol?: number;
+  maxCholesterol?: number;
+  minFluoride?: number;
+  maxFluoride?: number;
+  minSaturatedFat?: number;
+  maxSaturatedFat?: number;
+  minVitaminA?: number;
+  maxVitaminA?: number;
+  minVitaminC?: number;
+  maxVitaminC?: number;
+  minVitaminD?: number;
+  maxVitaminD?: number;
+  minVitaminE?: number;
+  maxVitaminE?: number;
+  minVitaminK?: number;
+  maxVitaminK?: number;
+  minVitaminB1?: number;
+  maxVitaminB1?: number;
+  minVitaminB2?: number;
+  maxVitaminB2?: number;
+  minVitaminB5?: number;
+  maxVitaminB5?: number;
+  minVitaminB3?: number;
+  maxVitaminB3?: number;
+  minVitaminB6?: number;
+  maxVitaminB6?: number;
+  minVitaminB12?: number;
+  maxVitaminB12?: number;
+  minFiber?: number;
+  maxFiber?: number;
+  minFolate?: number;
+  maxFolate?: number;
+  minFolicAcid?: number;
+  maxFolicAcid?: number;
+  minIodine?: number;
+  maxIodine?: number;
+  minIron?: number;
+  maxIron?: number;
+  minMagnesium?: number;
+  maxMagnesium?: number;
+  minManganese?: number;
+  maxManganese?: number;
+  minPhosphorus?: number;
+  maxPhosphorus?: number;
+  minPotassium?: number;
+  maxPotassium?: number;
+  minSelenium?: number;
+  maxSelenium?: number;
+  minSodium?: number;
+  maxSodium?: number;
+  minSugar?: number;
+  maxSugar?: number;
+  minZinc?: number;
+  maxZinc?: number;
+}
+
+export interface complexSearchProps extends nutritionTypes {
+  query: string;
+  cuisine?: cuisineDataProps;
+  excludeCuisine?: cuisineDataProps | string;
+  diet?: dietTypeProps;
+  intolerances?: typeIntoleranceProps;
+  equipment?: equipmentTypeProps;
+  includeIngredients?: string;
+  excludeIngredients?: string;
+  type?: mailTypeProps;
+  instructionsRequired?: boolean;
+  fillIngredients?: boolean;
+  addRecipeInformation?: boolean;
+  addRecipeInstructions?: boolean;
+  addRecipeNutrition?: boolean;
+  author?: boolean;
+  tags?: string;
+  recipeBoxId?: number;
+  titleMatch?: string;
+  maxReadyTime?: number;
+  minServings?: number;
+  maxServings?: number;
+  ignorePantry?: boolean;
+  sort?: sortTypeProps;
+  sortDirection?: `asc` | `desc`;
+  offset?: number;
+  number?: number;
+}
+
+export interface searchRecipesByIngredientsProps {
+  ingredients: string;
+  number?: number;
+  ranking: number;
+  ignorePantry?: boolean;
+}
+export interface getRecipeInformationProps {
+  includeNutrition?: boolean;
+  addWinePairing?: boolean;
+  addTasteData?: boolean;
+}
+
+export interface getRandomRecipesProps {
+  includeNutrition?: boolean;
+  number?: number;
+}
+
+export interface IngredientSearchProps {
+  query: string;
+  addChildren?: boolean;
+  minProteinPercent?: number;
+  maxProteinPercent?: number;
+  minFatPercent?: number;
+  maxFatPercent?: number;
+  minCarbsPercent?: number;
+  maxCarbsPercent?: number;
+  metaInformation?: boolean;
+  intolerances?: typeIntoleranceProps;
+  sort?: sortTypeProps;
+  sortDirection?: `asc` | `desc`;
+  language?: `en` | `de`;
+  offset?: number;
+  number?: number;
+}
+
+export interface getIngredientsInformationProps {
+  amount: number;
+  unit: string | `grams`;
+  locale: `en_US` | `en_GB`;
+}
+export interface computeIngredientAmountProps {
+  nutrient: nutrientTypeProps;
+  target: number;
+  unit: string;
+}
+
+export interface convertAmountProps {
+  ingredientName: string;
+  sourceAmount: number;
+  sourceUnit: string;
+  targetUnit: string;
 }

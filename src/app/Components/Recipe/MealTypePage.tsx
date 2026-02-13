@@ -49,7 +49,7 @@ const MealTypePage = ({ mealType }: { mealType: mealTypeProps }) => {
         </div>
       </div>
       {/* <RecipeGridLoadingSkeleton /> */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-5 justify-items-center">
         <RecipeCard />
         <RecipeCard />
         <RecipeCard />
