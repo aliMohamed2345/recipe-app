@@ -3,7 +3,6 @@ import { ReactNode } from "react";
 
 export interface recipeProps {
   id: number;
-
   title: string;
   image: string;
   servings: number;
@@ -20,7 +19,7 @@ export interface recipeProps {
 }
 
 export interface recipeType {
-  results: [recipeProps];
+  results: recipeProps[];
 }
 
 export type activityLevelType =
@@ -501,8 +500,8 @@ export interface nutritionTypes {
 }
 
 export interface complexSearchProps extends nutritionTypes {
-  query: string;
-  cuisine?: cuisineDataProps;
+  query?: string;
+  cuisine?: typeCuisinesProps;
   excludeCuisine?: cuisineDataProps | string;
   diet?: dietTypeProps;
   intolerances?: typeIntoleranceProps;
@@ -580,4 +579,187 @@ export interface convertAmountProps {
   sourceAmount: number;
   sourceUnit: string;
   targetUnit: string;
+}
+
+export interface InfiniteScrollProps {
+  onLoadMore: () => void;
+  hasMore: boolean;
+  loading: boolean;
+  rootMargin?: string;
+}
+export interface searchRecipesResponseProps {
+  offset: number;
+  totalResults: number;
+  results: ExtendedRecipeProps[];
+}
+export interface ExtendedRecipeProps extends recipeProps {
+  cheap?: boolean;
+  glutenFree?: boolean;
+  vegan?: boolean;
+  vegetarian?: boolean;
+  veryHealthy?: boolean;
+  healthScore?: number;
+  cuisines?: string[];
+  dishTypes?: string[];
+  pricePerServing?: number;
+}
+
+export interface RecipeInformationResponseProps {
+  vegetarian: boolean;
+  vegan: boolean;
+  glutenFree: boolean;
+  dairyFree: boolean;
+  veryHealthy: boolean;
+  cheap: boolean;
+  veryPopular: boolean;
+  sustainable: boolean;
+  lowFodmap: boolean;
+
+  weightWatcherSmartPoints: number;
+  gaps: string;
+
+  preparationMinutes: number | null;
+  cookingMinutes: number | null;
+  readyInMinutes: number;
+
+  healthScore: number;
+  pricePerServing: number;
+
+  aggregateLikes: number;
+  spoonacularScore: number;
+
+  id: number;
+  title: string;
+  image: string;
+  imageType: string;
+
+  servings: number;
+
+  sourceName: string;
+  sourceUrl: string;
+  spoonacularSourceUrl: string;
+
+  license?: string | null;
+  creditsText?: string;
+
+  summary: string;
+  instructions?: string | null;
+
+  cuisines: string[];
+  dishTypes: string[];
+  diets: string[];
+  occasions: string[];
+
+  nutrition?: NutritionProps;
+
+  extendedIngredients: ExtendedIngredientProps[];
+
+  analyzedInstructions: AnalyzedInstructionProps[];
+
+  language: string;
+}
+
+export interface NutritionProps {
+  nutrients: NutrientProps[];
+  properties: NutritionPropertyProps[];
+  flavonoids: FlavonoidProps[];
+  ingredients: NutritionIngredientProps[];
+  caloricBreakdown?: CaloricBreakdownProps;
+  weightPerServing?: WeightPerServingProps;
+}
+
+export interface NutrientProps {
+  name: string;
+  amount: number;
+  unit: string;
+  percentOfDailyNeeds?: number;
+}
+
+export interface NutritionPropertyProps {
+  name: string;
+  amount: number;
+  unit: string;
+}
+
+export interface FlavonoidProps {
+  name: string;
+  amount: number;
+  unit: string;
+}
+
+export interface NutritionIngredientProps {
+  id: number;
+  name: string;
+  amount: number;
+  unit: string;
+  nutrients: NutrientProps[];
+}
+
+export interface CaloricBreakdownProps {
+  percentProtein: number;
+  percentFat: number;
+  percentCarbs: number;
+}
+
+export interface WeightPerServingProps {
+  amount: number;
+  unit: string;
+}
+
+export interface ExtendedIngredientProps {
+  id: number;
+  aisle: string;
+  image: string;
+  consistency: string;
+
+  name: string;
+  nameClean?: string;
+  original: string;
+  originalName: string;
+
+  amount: number;
+  unit: string;
+
+  meta: string[];
+
+  measures: {
+    us: MeasureProps;
+    metric: MeasureProps;
+  };
+}
+
+export interface MeasureProps {
+  amount: number;
+  unitShort: string;
+  unitLong: string;
+}
+
+export interface AnalyzedInstructionProps {
+  name: string;
+  steps: InstructionStepProps[];
+}
+
+export interface InstructionStepProps {
+  number: number;
+  step: string;
+  ingredients: StepIngredientProps[];
+  equipment: StepEquipmentProps[];
+  length?: {
+    number: number;
+    unit: string;
+  };
+}
+
+export interface StepIngredientProps {
+  id: number;
+  name: string;
+  localizedName: string;
+  image: string;
+}
+
+export interface StepEquipmentProps {
+  id: number;
+  name: string;
+  localizedName: string;
+  image: string;
 }

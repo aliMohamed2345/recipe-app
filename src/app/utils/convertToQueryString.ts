@@ -18,6 +18,7 @@ export const convertToQueryString = (
     | computeIngredientAmountProps
     | convertAmountProps,
 ) => {
+  if(!filters)return
   const params = new URLSearchParams();
 
   Object.entries(filters).forEach(([key, value]) => {
