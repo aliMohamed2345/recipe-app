@@ -11,7 +11,7 @@ const page = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center p-4">
         {cuisinesData.map((cuisine, i) => (
           <Link
-            href={`/discover/${cuisine.title as typeCuisinesProps}`}
+            href={`/discover/${encodeURIComponent(cuisine.title as typeCuisinesProps)}`}
             key={i}
             className="group w-full max-w-sm"
           >

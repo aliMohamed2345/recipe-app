@@ -36,10 +36,10 @@ const DiscoverIdPage = ({
     if (!data) return;
 
     setRecipes((prev) =>
-      offset === 0 ? data.results : [...prev, ...data.results],
+      offset === 0 ? data?.results : [...prev, ...data.results],
     );
 
-    if (data.results.length < PAGE_SIZE) {
+    if (data?.results?.length < PAGE_SIZE) {
       setHasMore(false);
     }
   }, [data, offset]);
@@ -63,10 +63,10 @@ const DiscoverIdPage = ({
 
       {offset === 0 && loading && <RecipeGridLoadingSkeleton />}
 
-      {recipes.length > 0 && (
+      {recipes?.length > 0 && (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 justify-items-center pt-5 max-w-6xl mx-auto">
-            {recipes.map((recipe,i) => (
+            {recipes?.map((recipe, i) => (
               <RecipeCard key={i} recipeData={recipe} />
             ))}
           </div>
@@ -85,7 +85,7 @@ const DiscoverIdPage = ({
         </div>
       )}
 
-      {!hasMore && recipes.length > 0 && (
+      {!hasMore && recipes?.length > 0 && (
         <div className="py-6 text-center text-muted-foreground text-sm">
           No more recipes found 🍽️
         </div>

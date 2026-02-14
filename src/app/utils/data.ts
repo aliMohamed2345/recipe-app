@@ -544,10 +544,16 @@ export const sortTypeData: sortTypeProps[] = [
   `zinc`,
 ];
 
-export const filterDataInitialState:FilterDataProps = {
+export const filterDataInitialState: FilterDataProps = {
   cuisine: undefined,
   mealType: undefined,
   intolerance: undefined,
-  diet:undefined, 
-  equipment:undefined
+  diet: undefined,
+  equipment: undefined,
+};
+export const mealTypeDataConvert: Record<mealTypeProps, string> = {
+  breakfast: "breakfast",
+  lunch: "main course",
+  dinner: "side dish",
+  snack: "snack",
 };

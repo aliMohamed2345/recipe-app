@@ -4,8 +4,15 @@ import { FaClock } from "react-icons/fa";
 import { GiHealthNormal } from "react-icons/gi";
 import { MdOutlineRestaurant } from "react-icons/md";
 import { ExtendedRecipeProps } from "@/app/utils/types";
-
+import { GoHeart, GoHeartFill } from "react-icons/go";
+import { useState } from "react";
 const RecipeCard = ({ recipeData }: { recipeData: ExtendedRecipeProps }) => {
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+  const switchFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsFavorite((prev) => !prev);
+  };
   return (
     <Link
       href={`/recipes/${recipeData?.id}`}
@@ -14,9 +21,9 @@ const RecipeCard = ({ recipeData }: { recipeData: ExtendedRecipeProps }) => {
       <div className="relative w-full h-[190px]">
         <Image
           src={
-            recipeData?.image.includes("https")
+            recipeData?.image?.includes("https")
               ? recipeData?.image
-              : `https://spoonacular.com/recipeImages/${recipeData.image}`
+              : `https://spoonacular.com/recipeImages/${recipeData?.image}`
           }
           alt={recipeData?.title}
           fill
@@ -41,6 +48,16 @@ const RecipeCard = ({ recipeData }: { recipeData: ExtendedRecipeProps }) => {
             </span>
           )}
         </div>
+        <button
+          onClick={(e) => switchFavorite(e)}
+          className="absolute top-2 right-2 bg-black/40 font-bold rounded-full p-2 cursor-pointer hover:bg-black/70 transition-all"
+        >
+          {isFavorite ? (
+            <GoHeartFill className="text-destructive" size={20} />
+          ) : (
+            <GoHeart className="text-destructive" size={20} />
+          )}
+        </button>
       </div>
 
       <div className="p-4 flex flex-col gap-3">
