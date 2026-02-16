@@ -3,23 +3,17 @@ import { useRef, useMemo } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import RecipeCard from "./RecipeCard";
 import {
-  ExtendedRecipeProps,
   mailTypeProps,
-  nutritionProps,
   searchRecipesResponseProps,
 } from "@/app/utils/types";
 import { useFetch } from "@/app/hooks/useFetch";
 import { apiEndpoints } from "@/app/utils/axios";
-
+import { RecipeSliderProps } from "@/app/utils/types";
 const RecipeSlider = ({
   RecipesData,
   mealType,
   nutrition
-}: {
-  RecipesData?: ExtendedRecipeProps[];
-  mealType?: string;
-  nutrition:nutritionProps
-}) => {
+}: RecipeSliderProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const url = useMemo(() => {

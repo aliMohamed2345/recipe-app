@@ -436,3 +436,8 @@ export interface NotFoundRecipesProps {
   searchTerm?: string;
   onClearFilters?: () => void;
 }
+export interface RecipeSliderProps {
+  RecipesData?: ExtendedRecipeProps[];
+  mealType?: string;
+  nutrition?: nutritionProps;
+}
