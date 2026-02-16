@@ -4,7 +4,6 @@ import axios, { AxiosResponse } from "axios";
 import { UseFetchProps } from "../utils/types";
 import { axiosInstance } from "../utils/axios";
 
-
 export const useFetch = <T>({
   url,
   options = {},
@@ -12,26 +11,34 @@ export const useFetch = <T>({
 }: UseFetchProps) => {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!url) return;
+    if (!url) {
+      setLoading(false);
+      setData(null);
+      return;
+    }
 
     const fetchData = async () => {
       try {
         setLoading(true);
+
         const response: AxiosResponse<T> = await axiosInstance.get(
           url,
-          options
+          options,
         );
+
         setData(response.data);
+        setError(null);
       } catch (err: unknown) {
         const errorMessage =
           err instanceof Error
             ? err.message
             : axios.isAxiosError(err) && err.response?.data?.message
-            ? err.response.data.message
-            : "Unknown error";
+              ? err.response.data.message
+              : "Unknown error";
+
         setError(errorMessage);
       } finally {
         setLoading(false);
@@ -39,8 +46,7 @@ export const useFetch = <T>({
     };
 
     fetchData();
-    // Only include dependencies explicitly passed
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url, ...dependencies]);
 
   return { data, error, loading };

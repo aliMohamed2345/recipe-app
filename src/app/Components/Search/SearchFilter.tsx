@@ -35,9 +35,10 @@ const SearchFilter = ({ searchValue }: { searchValue: string }) => {
     intolerance: undefined,
     diet: undefined,
     equipment: undefined,
+    sortBy:undefined
   });
 
-  const isEmpty = !filters.cuisine && !filters.mealType && !filters.intolerance;
+  const isEmpty = !filters.cuisine && !filters.mealType && !filters.equipment&& !filters.diet&& !filters.sortBy && !filters.intolerance;
 
   const applyFilters = () => {
     if (isEmpty) return toast.error("Please select at least one filter");
@@ -49,6 +50,9 @@ const SearchFilter = ({ searchValue }: { searchValue: string }) => {
     if (filters.cuisine) params.set("cuisine", filters.cuisine);
     if (filters.mealType) params.set("mealType", filters.mealType);
     if (filters.intolerance) params.set("intolerance", filters.intolerance);
+    if (filters.sortBy) params.set("sortBy", filters.sortBy);
+    if (filters.equipment) params.set("equipment", filters.equipment);
+    if (filters.diet) params.set("diet", filters.diet);
 
     router.push(`/search?${params.toString()}`);
     setOpen(false);

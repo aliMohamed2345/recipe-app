@@ -11,31 +11,66 @@ const InfiniteScroll = ({
   rootMargin = "200px",
 }: InfiniteScrollProps) => {
   const triggerRef = useRef<HTMLDivElement | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  // Latest values refs (prevent stale closure problems)
+  const loadingRef = useRef(loading);
+  const hasMoreRef = useRef(hasMore);
+  const loadMoreRef = useRef(onLoadMore);
+
+  // Sync refs
+  useEffect(() => {
+    loadingRef.current = loading;
+  }, [loading]);
 
   useEffect(() => {
-    if (!hasMore) return;
+    hasMoreRef.current = hasMore;
+  }, [hasMore]);
 
-    const observer = new IntersectionObserver(
+  useEffect(() => {
+    loadMoreRef.current = onLoadMore;
+  }, [onLoadMore]);
+
+  // Create observer ONCE
+  useEffect(() => {
+    if (!triggerRef.current) return;
+
+    observerRef.current = new IntersectionObserver(
       (entries) => {
-        const first = entries[0];
-        if (first.isIntersecting && !loading) {
-          onLoadMore();
+        const entry = entries[0];
+
+        if (!entry?.isIntersecting) return;
+
+        if (loadingRef.current) return;
+        if (!hasMoreRef.current) return;
+
+        // Stop observing until fetch finishes
+        if (triggerRef.current) {
+          observerRef.current?.unobserve(triggerRef.current);
         }
+
+        loadMoreRef.current();
       },
-      { rootMargin },
+      {
+        rootMargin,
+        threshold: 0.1,
+      },
     );
 
-    const current = triggerRef.current;
-    if (current) observer.observe(current);
+    observerRef.current.observe(triggerRef.current);
 
-    return () => {
-      if (current) observer.unobserve(current);
-    };
-  }, [hasMore, loading, onLoadMore, rootMargin]);
+    return () => observerRef.current?.disconnect();
+  }, [rootMargin]);
+
+  // Re-observe AFTER loading finishes
+  useEffect(() => {
+    if (!loading && hasMore && triggerRef.current) {
+      observerRef.current?.observe(triggerRef.current);
+    }
+  }, [loading, hasMore]);
 
   return (
     <>
-      {/* Trigger Element */}
       <div
         ref={triggerRef}
         className="w-full h-16 flex justify-center items-center"
@@ -47,10 +82,9 @@ const InfiniteScroll = ({
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.9 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
+              transition={{ duration: 0.35 }}
               className="flex flex-col items-center gap-2"
             >
-              {/* Animated Spinner */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{
@@ -61,20 +95,14 @@ const InfiniteScroll = ({
                 className="w-8 h-8 border-2 border-muted-foreground border-t-transparent rounded-full"
               />
 
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="text-xs text-muted-foreground"
-              >
+              <span className="text-xs text-muted-foreground">
                 Loading more recipes...
-              </motion.span>
+              </span>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
 
-      {/* End State */}
       <AnimatePresence>
         {!hasMore && !loading && (
           <motion.div
@@ -82,7 +110,6 @@ const InfiniteScroll = ({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
             className="text-center text-sm text-muted-foreground py-6"
           >
             🍽️ No more recipes found

@@ -6,13 +6,17 @@ import { MdOutlineRestaurant } from "react-icons/md";
 import { ExtendedRecipeProps } from "@/app/utils/types";
 import { GoHeart, GoHeartFill } from "react-icons/go";
 import { useState } from "react";
+import { switchFavorite } from "@/app/utils/switchFavorite";
 const RecipeCard = ({ recipeData }: { recipeData: ExtendedRecipeProps }) => {
-  const [isFavorite, setIsFavorite] = useState<boolean>(false);
-  const switchFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsFavorite((prev) => !prev);
-  };
+  const favoriteRecipeList: ExtendedRecipeProps[] =
+    typeof window === "undefined"
+      ? []
+      : JSON.parse(localStorage.getItem("favorite-recipes") || "[]");
+  const favoriteInitialState =
+    favoriteRecipeList.find((r) => recipeData.id === r.id)?.isFavorite || false;
+
+  const [isFavorite, setIsFavorite] = useState<boolean>(favoriteInitialState);
+
   return (
     <Link
       href={`/recipes/${recipeData?.id}`}
@@ -49,7 +53,9 @@ const RecipeCard = ({ recipeData }: { recipeData: ExtendedRecipeProps }) => {
           )}
         </div>
         <button
-          onClick={(e) => switchFavorite(e)}
+          onClick={(e) =>
+            switchFavorite(e, setIsFavorite, recipeData)
+          }
           className="absolute top-2 right-2 bg-black/40 font-bold rounded-full p-2 cursor-pointer hover:bg-black/70 transition-all"
         >
           {isFavorite ? (

@@ -168,7 +168,7 @@ const CalculatorTab = () => {
           <p className="text-muted-foreground font-bold text-base text-center sm:text-left">
             Total Calories:
           </p>
-          <p className="text-bold text-2xl text-center sm:text-left">
+          <p className="font-bold text-2xl text-center sm:text-left">
             {calories}
           </p>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 grid-cols-1 mt-10 justify-center gap-3">

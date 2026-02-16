@@ -14,7 +14,7 @@ const SideMenu = () => {
       <button
         onClick={() => setIsOpen(true)}
         aria-label="Open menu"
-        className="p-1 rounded-full cursor-pointer transition-all ease-in-out hover:bg-accent font-bold opacity-80 hover:opacity-100 text-foreground sm:hidden"
+        className="p-1 rounded-full cursor-pointer transition-all ease-in-out hover:bg-background font-bold opacity-80 hover:opacity-100 text-foreground sm:hidden"
       >
         <PiListBold size={25} />
       </button>

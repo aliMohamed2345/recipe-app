@@ -134,6 +134,7 @@ const Search = () => {
                     .map((value, i) => (
                       <motion.div key={value + i} variants={listItem}>
                         <Link
+                          onClick={() => setOpenSearch(false)}
                           href={`/search?q=${value}`}
                           className="flex items-center justify-between p-3 rounded-xl bg-secondary hover:scale-[1.01] text-secondary-foreground transition"
                         >
@@ -143,7 +144,7 @@ const Search = () => {
                           </span>
 
                           <IoClose
-                          size={25}
+                            size={25}
                             onClick={(e) => {
                               e.preventDefault();
                               handleRemoveSearchValue(value);

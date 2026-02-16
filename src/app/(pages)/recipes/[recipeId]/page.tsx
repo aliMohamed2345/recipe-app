@@ -26,8 +26,16 @@ import {
 import RecipeIdLoadingSkeleton from "@/app/Components/Recipe/RecipeIdLoadingSkeleton";
 import RecipeSlider from "@/app/Components/Recipe/RecipeSlider";
 import RecipeSliderLoadingSkeleton from "@/app/Components/Recipe/RecipeSliderLoadingSkeleton";
+import { switchFavorite } from "@/app/utils/switchFavorite";
 const RecipeId = () => {
   const { recipeId } = useParams();
+
+  const favoriteRecipeList: ExtendedRecipeProps[] =
+    typeof window === "undefined"
+      ? []
+      : JSON.parse(localStorage.getItem("favorite-recipes") || "[]");
+  const favoriteInitialState =
+    favoriteRecipeList.find((r) => +recipeId! === r.id)?.isFavorite || false;
 
   const [currentTab, setCurrentTab] = useState<"ingredients" | "instructions">(
     "ingredients",
@@ -43,8 +51,7 @@ const RecipeId = () => {
   >({
     url: apiEndpoints.getSimilarRecipes(Number(recipeId), { number: 20 }),
   });
-  const [isFavorite, setIsFavorite] = useState<boolean>(false);
-  console.log(similarRecipes);
+  const [isFavorite, setIsFavorite] = useState<boolean>(favoriteInitialState);
   const calories = useMemo(() => {
     return data?.nutrition?.nutrients?.find(
       (n: NutrientProps) => n.name === "Calories",
@@ -146,7 +153,9 @@ const RecipeId = () => {
         />
 
         <button
-          onClick={() => setIsFavorite((prev) => !prev)}
+          onClick={(e) =>
+            switchFavorite(e, setIsFavorite, data)
+          }
           className="rounded-xl cursor-pointer mx-auto border px-5 py-2 hover:bg-muted transition flex gap-2 items-center"
         >
           {isFavorite ? (

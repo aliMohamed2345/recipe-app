@@ -5,7 +5,6 @@ import { useParams } from "next/navigation";
 import React from "react";
 const Category = () => {
   const { categoryId } = useParams() as { categoryId: mealTypeProps };
-  console.log(categoryId);
   return (
     <div>
       <MealTypePage mealType={categoryId } />

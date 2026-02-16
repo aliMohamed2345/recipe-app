@@ -1,24 +1,64 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import RecipeCard from "./RecipeCard";
-import { ExtendedRecipeProps } from "@/app/utils/types";
+import {
+  ExtendedRecipeProps,
+  mailTypeProps,
+  nutritionProps,
+  searchRecipesResponseProps,
+} from "@/app/utils/types";
+import { useFetch } from "@/app/hooks/useFetch";
+import { apiEndpoints } from "@/app/utils/axios";
+
 const RecipeSlider = ({
   RecipesData,
+  mealType,
+  nutrition
 }: {
-  RecipesData: ExtendedRecipeProps[];
+  RecipesData?: ExtendedRecipeProps[];
+  mealType?: string;
+  nutrition:nutritionProps
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  const url = useMemo(() => {
+    if (!mealType) return null;
+    return apiEndpoints.searchRecipes({
+      type: mealType as mailTypeProps,
+      addRecipeInformation:true,
+      minCarbs:10, 
+      maxCarbs:nutrition?.carbs, 
+      minFat:10, 
+      maxFat:nutrition?.fat, 
+      minProtein:10 , 
+      maxProtein:nutrition?.protein, 
+      minCalories:50, 
+      maxCalories:nutrition?.calories
+    });
+  }, [mealType, nutrition]);
+
+  const { data: mealTypeRecipes, loading } =
+    useFetch<searchRecipesResponseProps>({
+      url,
+    
+    });
+
+  const recipesToRender =
+    mealTypeRecipes?.results || RecipesData || [];
+
   const scroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -320 : 320,
-        behavior: "smooth",
-      });
-    }
+    if (!scrollRef.current) return;
+
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -320 : 320,
+      behavior: "smooth",
+    });
   };
-  console.log(RecipesData[0].image);
+
+  if (loading) return null;
+
+  if (!recipesToRender.length) return null;
 
   return (
     <div className="p-2 relative mx-auto container">
@@ -28,6 +68,7 @@ const RecipeSlider = ({
       >
         <FaChevronLeft />
       </button>
+
       <button
         onClick={() => scroll("right")}
         className="absolute right-5 top-1/2 -translate-y-1/2 shadow-md p-3 rounded-full z-10 bg-green cursor-pointer flex items-center justify-center"
@@ -39,12 +80,14 @@ const RecipeSlider = ({
         ref={scrollRef}
         className="flex gap-4 overflow-x-hidden scrollbar-hide pb-3 scroll-smooth snap-x snap-mandatory rounded-lg p-2"
       >
-        {RecipesData.map((recipeData, index) => (
-          <div key={index} className="min-w-[250px] flex-shrink-0 snap-start">
+        {recipesToRender.map((recipeData, index) => (
+          <div
+            key={index}
+            className="min-w-[250px] flex-shrink-0 snap-start"
+          >
             <RecipeCard recipeData={recipeData} />
           </div>
         ))}
-        {}
       </div>
     </div>
   );

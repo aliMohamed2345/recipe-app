@@ -36,7 +36,7 @@ const DiscoverIdPage = ({
     if (!data) return;
 
     setRecipes((prev) =>
-      offset === 0 ? data?.results : [...prev, ...data.results],
+      offset === 0 ? data?.results : [...prev, ...data?.results],
     );
 
     if (data?.results?.length < PAGE_SIZE) {
@@ -85,13 +85,7 @@ const DiscoverIdPage = ({
         </div>
       )}
 
-      {!hasMore && recipes?.length > 0 && (
-        <div className="py-6 text-center text-muted-foreground text-sm">
-          No more recipes found 🍽️
-        </div>
-      )}
-
-      {error && toast.error("Something went wrong loading recipes.")}
+      {error && toast.error(`Something went wrong :${error}`)}
     </div>
   );
 };
